@@ -241,7 +241,6 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/DependencyFramework.framework",
 			);
 			outputFileListPaths = (
 			);
