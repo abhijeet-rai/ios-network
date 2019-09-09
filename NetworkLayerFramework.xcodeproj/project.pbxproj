@@ -27,7 +27,8 @@
 		008222E42326741E00019E62 /* SessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008222CF2326741E00019E62 /* SessionDelegate.swift */; };
 		008222E52326741E00019E62 /* ApplicationHTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008222D12326741E00019E62 /* ApplicationHTTPMethod.swift */; };
 		008222E62326741E00019E62 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008222D22326741E00019E62 /* Session.swift */; };
-		008222E92326748A00019E62 /* DependencyFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 008222E82326748A00019E62 /* DependencyFramework.framework */; };
+		008222EB23267D3900019E62 /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = 008222EA23267D3900019E62 /* Cartfile */; };
+		008222ED23267ED800019E62 /* DependencyFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 008222EC23267ED800019E62 /* DependencyFramework.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,8 @@
 		008222D12326741E00019E62 /* ApplicationHTTPMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationHTTPMethod.swift; sourceTree = "<group>"; };
 		008222D22326741E00019E62 /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		008222E82326748A00019E62 /* DependencyFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DependencyFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		008222EA23267D3900019E62 /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = SOURCE_ROOT; };
+		008222EC23267ED800019E62 /* DependencyFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DependencyFramework.framework; path = Carthage/Build/iOS/DependencyFramework.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,7 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				008222E92326748A00019E62 /* DependencyFramework.framework in Frameworks */,
+				008222ED23267ED800019E62 /* DependencyFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,6 +94,7 @@
 				008222BB2326741E00019E62 /* Dependency */,
 				008222D02326741E00019E62 /* HTTPServices */,
 				008222B4232673DD00019E62 /* Info.plist */,
+				008222EA23267D3900019E62 /* Cartfile */,
 			);
 			path = NetworkLayerFramework;
 			sourceTree = "<group>";
@@ -148,6 +152,7 @@
 		008222E72326748A00019E62 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				008222EC23267ED800019E62 /* DependencyFramework.framework */,
 				008222E82326748A00019E62 /* DependencyFramework.framework */,
 			);
 			name = Frameworks;
@@ -174,6 +179,7 @@
 				008222AC232673DD00019E62 /* Sources */,
 				008222AD232673DD00019E62 /* Frameworks */,
 				008222AE232673DD00019E62 /* Resources */,
+				008222EE23267F0400019E62 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -220,10 +226,32 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				008222EB23267D3900019E62 /* Cartfile in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		008222EE23267F0400019E62 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/DependencyFramework.framework",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		008222AC232673DD00019E62 /* Sources */ = {
@@ -388,6 +416,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = NetworkLayerFramework/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -414,6 +446,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = NetworkLayerFramework/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
